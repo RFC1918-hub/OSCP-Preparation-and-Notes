@@ -40,7 +40,7 @@
 
 ## Credentials
 
-* [Mimikatz](credentials/mimikatz.md)
+* [Mimikatz and Pypykatz](credentials/mimikatz.md)
 
 ## Post Exploitation
 
