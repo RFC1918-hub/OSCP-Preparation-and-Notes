@@ -22,6 +22,7 @@
   * [MSSQL](exploitations/sqli/mssql.md)
 * [Cross-Compiling Exploit Code](exploitations/cross-compiling-exploit-code.md)
 * [Windows](exploitations/windows/README.md)
+  * [PowerShell Basics](exploitations/windows/powershell-basics.md)
   * [AV Bypassing](exploitations/windows/av-bypassing.md)
   * [Run-As](exploitations/windows/run-as.md)
   * [Windows CVE Exploits](exploitations/windows/windows-cve-exploits/README.md)
@@ -58,6 +59,7 @@
     * [File transfer over SMB](post-exploitation/file-exfiltration-and-transfers/windows/file-transfer-over-smb.md)
     * [powercat](post-exploitation/file-exfiltration-and-transfers/windows/powercat.md)
 * [Windows Privilege Escalation](post-exploitation/windows-privilege-escalation/README.md)
+  * [Privilege Escalation with WINPWNAGE](post-exploitation/windows-privilege-escalation/privilege-escalation-with-winpwnage.md)
   * [Kernel Exploits](post-exploitation/windows-privilege-escalation/kernel-exploits.md)
   * [Admin to SYSTEM](post-exploitation/windows-privilege-escalation/admin-to-system.md)
   * [Searching for Passwords in REG](post-exploitation/windows-privilege-escalation/searching-for-passwords-in-reg.md)
@@ -71,6 +73,8 @@
 
 ## Buffer Overflows
 
+* [Linux](buffer-overflows/linux/README.md)
+  * [GDB](buffer-overflows/linux/gdb.md)
 * [Windows](buffer-overflows/windows/README.md)
   * [Stack Buffer Overflow](buffer-overflows/windows/stack-buffer-overflow.md)
 
