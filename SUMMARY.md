@@ -64,6 +64,7 @@
   * [Admin to SYSTEM](post-exploitation/windows-privilege-escalation/admin-to-system.md)
   * [Searching for Passwords in REG](post-exploitation/windows-privilege-escalation/searching-for-passwords-in-reg.md)
   * [accesschk.exe](post-exploitation/windows-privilege-escalation/accesschk.exe.md)
+  * [Potatoes for Lunch](post-exploitation/windows-privilege-escalation/potatoes-for-lunch.md)
 * [Linux Privilege Escalation](post-exploitation/linux-privilege-escalation.md)
 
 ## Pivoting
